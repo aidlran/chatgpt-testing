@@ -1,8 +1,15 @@
 #!/bin/bash
 
 # Read the source and destination directories from command-line arguments
-source=$1
-destination=$2
+source="$1"
+destination="$2"
+
+# Check if the source and destination directories were provided
+if [ -z "$source" ] || [ -z "$destination" ]; then
+  # Print an error message and exit
+  echo "Error: Please provide the source and destination directories as arguments."
+  exit 1
+fi
 
 # Check if the drive is full
 if df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' | grep -E '^100%' >/dev/null 2>&1; then
