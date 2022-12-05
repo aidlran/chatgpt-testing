@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Read the source and destination directories from command-line arguments
+source=$1
+destination=$2
+
 # Check if the drive is full
 if df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' | grep -E '^100%' >/dev/null 2>&1; then
   # Tell you off for being a data hoarder
@@ -8,4 +12,4 @@ if df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' | grep
 fi
 
 # Run the backup
-rsync -av --delete /source/ /destination/
+rsync -av --delete $source $destination
