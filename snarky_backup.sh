@@ -12,4 +12,4 @@ if df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' | grep
 fi
 
 # Run the backup
-rsync -av --delete $source $destination
+rsync -av --delete --hard-links --perms $source $destination
