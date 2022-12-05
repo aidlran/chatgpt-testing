@@ -7,7 +7,7 @@ destination="$2"
 # Check if the source and destination directories were provided
 if [ -z "$source" ] || [ -z "$destination" ]; then
   # Print an error message and exit
-  echo "Error: Please provide the source and destination directories as arguments."
+  echo "Error: You need to provide the source and destination directories, you dummy! I can't run the backup without them."
   exit 1
 fi
 
